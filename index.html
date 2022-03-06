@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sonar Radio</title>
+    <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelementplayer.min.css'>
+    <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div class="contain">
+        <div class="music-player" id="player">
+            <img id="backCover" class="backCover" src="" alt="">
+            <img class="nameTag" src="./image.png" alt=""> 
+            <div class="cover">
+                <div id="coverZone" class="coverPre">
+                    <img id="cover" src="" alt="">
+                </div>
+            </div>
+            <div class="titre">
+                <h3 id="nick" class="nicktag nonmarquee">Loading...</h3>
+                <h1 id="name" class="nonmarquee">Loading...</h1>
+            </div>
+            <div class="lecteur" id="lecteur">
+                <audio id="rplay" src="http://185.174.136.152:8000/play" autoplay="true" volume="0"></audio>
+                <audio id="rtop" src="http://185.174.136.152:8000/top40" autoplay="true" volume="0"></audio>
+                <audio id="rretro" src="http://185.174.136.152:8000/retro" autoplay="true" volume="0"></audio>
+                <audio id="rjazz" src="http://185.174.136.152:8000/jazz" autoplay="true" volume="0"></audio>
+                <svg id="play" onclick="switchPlayPause()" class="playPause" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                    <path
+                        d="m12.954 11.616 2.957-2.957L6.36 3.291c-.633-.342-1.226-.39-1.746-.016l8.34 8.341zm3.461 3.462 3.074-1.729c.6-.336.929-.812.929-1.34 0-.527-.329-1.004-.928-1.34l-2.783-1.563-3.133 3.132 2.841 2.84zM4.1 4.002c-.064.197-.1.417-.1.658v14.705c0 .381.084.709.236.97l8.097-8.098L4.1 4.002zm8.854 8.855L4.902 20.91c.154.059.32.09.495.09.312 0 .637-.092.968-.276l9.255-5.197-2.666-2.67z">
+                    </path>
+                </svg>
+                <svg id="pause" onclick="switchPlayPause()" class="playPause" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgba(0, 0, 0, 1);transform: scale(3.6);display: none">
+                    <path d="M8 7h3v10H8zm5 0h3v10h-3z"></path>
+                </svg>
+                <div class="controlElems">
+                    <svg onclick="audio.controls.next()" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                        viewBox="0 0 35 35"
+                        style="position: absolute;fill: #5bbb95;transform: scale(2); right: 82px; bottom: 5px;">
+                        <path d="m12.707 7.707-1.414-1.414L5.586 12l5.707 5.707 1.414-1.414L8.414 12z"></path>
+                        <path d="M16.293 6.293 10.586 12l5.707 5.707 1.414-1.414L13.414 12l4.293-4.293z"></path>
+                    </svg>
+                    <a class="nameRadio" id="radioName">Sonar</a>
+                    <svg onclick="audio.controls.prev()" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                        viewBox="0 0 35 35"
+                        style="position: absolute;fill: rgb(91, 187, 149);transform: scale(2); right: 0px;  bottom: 5px;">
+                        <path d="M10.296 7.71 14.621 12l-4.325 4.29 1.408 1.42L17.461 12l-5.757-5.71z"></path>
+                        <path d="M6.704 6.29 5.296 7.71 9.621 12l-4.325 4.29 1.408 1.42L12.461 12z"></path>
+                    </svg>
+                </div>
+                <input id="volume" class="volumeSlider" type="range" min="0" max="2" value="0.5" step="0.01" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgb(255, 255, 255); position: absolute; left: 35px; bottom: -106px;">
+                    <path
+                        d="M4 17h2.697l5.748 3.832a1.004 1.004 0 0 0 1.027.05A1 1 0 0 0 14 20V4a1 1 0 0 0-1.554-.832L6.697 7H4c-1.103 0-2 .897-2 2v6c0 1.103.897 2 2 2zm0-8h3c.033 0 .061-.016.093-.019a1.027 1.027 0 0 0 .379-.116c.026-.014.057-.017.082-.033L12 5.868v12.264l-4.445-2.964c-.025-.018-.056-.02-.082-.033a.977.977 0 0 0-.382-.116C7.059 15.016 7.032 15 7 15H4V9zm12-2v10c1.225-1.1 2-3.229 2-5s-.775-3.9-2-5z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgb(255, 255, 255); position: absolute; left: 350px; bottom: -105px;">
+                    <path
+                        d="M16 21c3.527-1.547 5.999-4.909 5.999-9S19.527 4.547 16 3v2c2.387 1.386 3.999 4.047 3.999 7S18.387 17.614 16 19v2z">
+                    </path>
+                    <path
+                        d="M16 7v10c1.225-1.1 2-3.229 2-5s-.775-3.9-2-5zM4 17h2.697l5.748 3.832a1.004 1.004 0 0 0 1.027.05A1 1 0 0 0 14 20V4a1 1 0 0 0-1.554-.832L6.697 7H4c-1.103 0-2 .897-2 2v6c0 1.103.897 2 2 2zm0-8h3c.033 0 .061-.016.093-.019a1.027 1.027 0 0 0 .38-.116c.026-.015.057-.017.082-.033L12 5.868v12.264l-4.445-2.964c-.025-.017-.056-.02-.082-.033a.986.986 0 0 0-.382-.116C7.059 15.016 7.032 15 7 15H4V9z">
+                    </path>
+                </svg>
+                <svg onclick="win.close()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgb(184, 76, 76); position: absolute; top: -456px; right: 20px;" title="Закрыть">
+                    <path onclick="close()"
+                        d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM4 19V7h16l.001 12H4z">
+                    </path>
+                    <path onclick="close()"
+                        d="m15.707 10.707-1.414-1.414L12 11.586 9.707 9.293l-1.414 1.414L10.586 13l-2.293 2.293 1.414 1.414L12 14.414l2.293 2.293 1.414-1.414L13.414 13z">
+                    </path>
+                </svg>
+                <svg onclick="win.minimize()" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" style="fill: rgb(84, 138, 182); position: absolute; top: -455px; right: 50px;">
+                    <path onclick="hide()" d="M9.01 11h6v2h-6z"></path>
+                    <path onclick="hide()"
+                        d="M17 5H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zM7 17V7h10v10z">
+                    </path>
+                </svg>
+                <!-- <a id="firstMessage"
+                    style="display: none; position: absolute; top: -400px; left: 150px; color: #fff; font-size: 20px; z-index: 1500;">Drag
+                    Zone</a> -->
+                <!-- <svg onclick="enableHint()" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24"
+                    style="fill: rgb(78, 149, 207);position: absolute; top: -455px; right: 75px; transform: scale(0.8);">
+                    <path
+                        d="M12 4C9.243 4 7 6.243 7 9h2c0-1.654 1.346-3 3-3s3 1.346 3 3c0 1.069-.454 1.465-1.481 2.255-.382.294-.813.626-1.226 1.038C10.981 13.604 10.995 14.897 11 15v2h2v-2.009c0-.024.023-.601.707-1.284.32-.32.682-.598 1.031-.867C15.798 12.024 17 11.1 17 9c0-2.757-2.243-5-5-5zm-1 14h2v2h-2z">
+                    </path> -->
+                </svg>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js'></script>
+<script src="./script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+</html>

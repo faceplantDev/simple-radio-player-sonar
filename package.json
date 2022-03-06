@@ -1,0 +1,22 @@
+{
+  "name": "radio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nwbuild -p win64 -o C:/Users/illeg/Desktop/radio/ C:/Users/illeg/Desktop/radio/src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "window": {
+    "toolbar": false,
+    "width": 400,
+    "height": 600,
+    "resizable": false,
+    "transparent": true,
+    "frame": false,
+    "icon": "image.png"
+  }
+}

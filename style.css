@@ -1,0 +1,195 @@
+*:focus {
+    outline: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+
+html {
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.05);
+}
+
+h1 {
+    margin: 0;
+    font-size: 33px;
+    color: #fff;
+}
+
+h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ccc;
+}
+
+.backCover {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -10;
+    opacity: 100%;
+    position: absolute;
+    max-width: 500px;
+    max-height: 700px;
+    filter: blur(4px);
+}
+
+.container {
+    display: block;
+    width: 100%;
+    height: 750px;
+    margin: auto;
+    overflow: hidden;
+    background-image: url("https://mariongrandvincent.github.io/HTML-Personal-website/img-codePen/bg-music-player.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.music-player {
+    display: block;
+    position: relative;
+    width: 400px;
+    height: 600px;
+    border-radius: 25px;
+    background: transparent linear-gradient(to bottom, rgba(10, 21, 31, 0.9) 50%, rgb(24, 33, 53) 70%) repeat scroll 0 0;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    float: center;
+    width: 100%;
+    height: 66%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.coverPre {
+    -webkit-app-region: drag;
+    display: block;
+    position: absolute;
+    top: 8%;
+    left: 14%;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    width: 280px;
+    height: 280px;
+    max-height: 280px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.cover img {
+    max-width: 280px;
+}
+
+.titre {
+    float: left;
+    width: 100%;
+    margin-left: 40px;
+    max-width: 270px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.lecteur {
+    width: 100%;
+    display: block;
+    height: auto;
+    position: relative;
+    float: left;
+}
+
+.nameTag {
+    font-family: 'Fredoka', sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    transform: translateX(-50%);
+    color: white;
+    max-width: 45px;
+    max-height: 45px;
+}
+
+.controlElems {
+    position: absolute;
+    right: 135px;
+    bottom: -75px;
+    display: inline-block;
+    z-index: 105;
+}
+
+.nameRadio {
+    position: absolute;
+    bottom: 23px;
+    right: 50px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.nicktag {
+    color: #999 !important;
+}
+
+.playPause {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    transform: scale(2);
+    fill: rgb(112, 218, 177) !important;
+}
+
+#volume {
+    position: absolute;
+    bottom: -100px;
+    left: 65px;
+    border-radius: 8px;
+    height: 8px;
+    width: 270px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.marquee {
+    color: white;
+    margin-left: 40px;
+    max-width: 999;
+    white-space: nowrap;
+    animation: marqueeAnim 16s linear infinite;
+}
+
+.nonmarquee {
+    color: white;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    width: 6px;
+    -webkit-appearance: none;
+    height: 12px;
+    background: rgb(204, 204, 204);
+    border-radius: 2px;
+}
+
+@keyframes marqueeAnim {
+    0% {
+        transform: translateX(120%);
+    }
+
+    100% {
+        transform: translateX(-250%);
+    }
+}
